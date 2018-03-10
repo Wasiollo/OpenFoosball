@@ -1,3 +1,3 @@
-# PIKOrganizationOfTableFootball
+# OpenFoosball
 
 develop 

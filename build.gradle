@@ -45,6 +45,8 @@ dependencies {
 	testCompile('org.springframework.security:spring-security-test')
 }
 
+cargoRedeployRemote.dependsOn(bootWar)
+
 cargo {
 	containerId = 'tomcat8x'
 	port = 8081

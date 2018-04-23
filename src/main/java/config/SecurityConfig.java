@@ -1,4 +1,4 @@
-package com.silentpenguins.OpenFoosball;
+package config;
 
 
 import org.springframework.context.annotation.Bean;

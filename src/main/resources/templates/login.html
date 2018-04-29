@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" th:src="@{/webjars/angularjs/1.6.9/angular.js}"></script>
-    <script type="text/javascript" th:src="@{/webjars/angularjs/1.6.9/angular-resource.js}"></script>
-    <script type="text/javascript" th:src="@{/webjars/angularjs/1.6.9/angular-route.js}"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}"/>
-    <script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.js}"></script>
-    <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="/webjars/angularjs/1.6.9/angular.js"></script>
+    <script src="/webjars/angularjs/1.6.9/angular-resource.js"></script>
+    <script src="/webjars/angularjs/1.6.9/angular-route.js"></script>
+    <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <script src="/webjars/bootstrap/4.1.0/js/bootstrap.js"></script>
+    <title>OpenFossball</title>
 </head>
 <body style="padding-top: 70px;">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -19,14 +22,16 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 </nav>
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.x
-</div>
 <form th:action="@{/login}" method="post">
     <div class="container">
+        <div class="row">
+            <div th:if="${param.logout}">
+                <h3 style="color: red">You have been logged out.</h3>
+            </div>
+            <div th:if="${param.error}">
+                <h3 style="color: red">Invalid username and password.</h3>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-4">
                 <label> User Name : </label>

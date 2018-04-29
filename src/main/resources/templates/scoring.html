@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="/webjars/angularjs/1.6.9/angular.js"></script>
+    <script src="/webjars/angularjs/1.6.9/angular-resource.js"></script>
+    <script src="/webjars/angularjs/1.6.9/angular-route.js"></script>
+    <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <script src="/webjars/bootstrap/4.1.0/js/bootstrap.js"></script>
+    <link href="assets" rel="stylesheet" media="screen"/>
+    <title>OpenFossball</title>
+</head>
+<body ng-app="mymodal" style="padding-top: 40px">
+
+<div ng-controller="scoringCtrl">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+        <a class="navbar-brand" href="/">OpenFoosball</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/scoring">Scoring
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/rules">Rules</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/playerpage">Profil</a>
+                </li>
+                <li class="button">
+                    <form th:action="@{/logout}" method="post">
+                        <button class="btn btn-danger">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <div class="container">
+
+        <!-- Page Content -->
+        <div class="row">
+
+            <div class="col-lg-3">
+                <h1 class="my-4">Scoring</h1>
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">04-2018</a>
+                    <a href="#" class="list-group-item">03-2018</a>
+                    <a href="#" class="list-group-item">02-2018</a>
+                </div>
+            </div>
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-9">
+                <div class="card mt-4">
+                    <img class="card-img-top img-fluid" ng-src="./assets/{{scoringImage}}" alt="scoringImage"
+                         title="scoringImage"/>
+                    <div class="card-body">
+                        <h3 class="card-title">Scoring</h3>
+                        <h4>Scoring in our company</h4>
+                        <p class="card-text">Marcin Puc defeated all opponents with his great game.
+                            He is an amazing player who won all matches this season. This is the rising star of
+                            our company, which will perform in the national table football championship.
+                            We wish him luck and we cheer for him during future tournaments.</p>
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+                    </div>
+                </div>
+                <!-- /.card -->
+
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        Tournament
+                        <img class="card-img-top img-fluid" ng-src="./assets/{{tournamentImage}}" alt="scoringImage"
+                             title="scoringImage"/>
+                    </div>
+                    <div class="card-body">
+                        <p>Tournament Match - Play for the highest value, points {{tournamentPoints}}</p>
+                        <hr>
+                    </div>
+                </div>
+
+
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        Regular
+                        <img class="card-img-top img-fluid" ng-src="./assets/{{regularImage}}" alt="scoringImage"
+                             title="scoringImage"/>
+                        <img src="assets/regular.png"/>
+                        <img th:src="@{/assets/training.jpg}"/>
+                    </div>
+
+                    <div class="card-body">
+                        <img src="regular.png"/>
+                        <p>Regular Match - Just normal match, points {{regularPoints}}</p>
+                        <hr>
+                    </div>
+                </div>
+
+
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        Training
+                        <img class="card-img-top img-fluid" ng-src="{{trainingImage}}" alt="scoringImage"
+                             title="scoringImage"/>
+                    </div>
+                    <div class="card-body">
+                        <p>Training match - just the game, points: {{trainingPoints}}</p>
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col-lg-9 -->
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; OpenFossball Team 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+</div>
+<script>
+    var mymodal = angular.module('mymodal', []);
+
+    mymodal.controller('scoringCtrl', function ($scope) {
+        $scope.scoringImage = 'scoring_points.jpg';
+        $scope.tournamentImage = 'trophy.jpg';
+        $scope.regularImage = 'regular.png' ;
+        $scope.trainingImage = './assets/training.jpg' ;
+        $scope.trainingPoints = 0;
+        $scope.regularPoints= 1;
+        $scope.tournamentPoints = 3;
+    });
+
+</script>
+</body>
+</html>

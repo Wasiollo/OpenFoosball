@@ -4,116 +4,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="/webjars/angularjs/1.6.9/angular.js"></script>
     <script src="/webjars/angularjs/1.6.9/angular-resource.js"></script>
     <script src="/webjars/angularjs/1.6.9/angular-route.js"></script>
     <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css"
           th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
     <script src="/webjars/bootstrap/4.1.0/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-    <title>Home</title>
+    <title>OpenFossball</title>
 </head>
-<body ng-app="mymodal">
+<body ng-app="mymodal" style="padding-top: 40px">
 
 <div ng-controller="MainCtrl">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 
-            <a class="navbar-brand" href="/">OpenFoosball</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="/login">Logout</a>
-                    </li>
-                </ul>
-            </div>
+        <a class="navbar-brand" href="/">OpenFoosball</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/scoring">Scoring</a>
+                </li><li class="nav-item">
+                <a class="nav-link" href="/rules">Rules</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/playerpage">Profil</a>
+                </li>
+                <li class="button">
+                    <form th:action="@{/logout}" method="post">
+                        <button class="btn btn-danger">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
 
     </nav>
+
     <div class="container">
-    <h1>Modal example</h1>
-    <button ng-click="toggleModal()" class="btn btn-default">Open modal</button>
-
-
     <!-- Page Content -->
-        <div class="row">
+    <div class="row">
 
-            <div class="col-lg-3">
-                <h1 class="my-4">Last Tournaments</h1>
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">04-2018</a>
-                    <a href="#" class="list-group-item">03-2018</a>
-                    <a href="#" class="list-group-item">02-2018</a>
+        <div class="col-lg-3">
+            <h1 class="my-4">Last Tournaments</h1>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">04-2018</a>
+                <a href="#" class="list-group-item">03-2018</a>
+                <a href="#" class="list-group-item">02-2018</a>
+            </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+            <div class="card mt-4">
+                <img class="card-img-top img-fluid" ng-src="{{image}}" alt="">
+                <div class="card-body">
+                    <h3 class="card-title">Marcin Puc - Winner of current tournament</h3>
+                    <h4>Marcin Puc with 4 trophies</h4>
+                    <p class="card-text">Marcin Puc defeated all opponents with his great game.
+                        He is an amazing player who won all matches this season. This is the rising star of
+                        our company, which will perform in the national table football championship.
+                        We wish him luck and we cheer for him during future tournaments.</p>
+                    <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+                    5.0 stars
                 </div>
             </div>
-            <!-- /.col-lg-3 -->
+            <!-- /.card -->
 
-            <div class="col-lg-9">
-
-                <div class="card mt-4">
-                    <img class="card-img-top img-fluid" ng-src="{{image}}" alt="">
-                    <div class="card-body">
-                        <h3 class="card-title">Marcin Puc - Winner of current tournament</h3>
-                        <h4>Marcin Puc with 4 trophies</h4>
-                        <p class="card-text">Marcin Puc defeated all opponents with his great game.
-                            He is an amazing player who won all matches this season. This is the rising star of
-                            our company, which will perform in the national table football championship.
-                            We wish him luck and we cheer for him during future tournaments.</p>
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
-                        5.0 stars
-                    </div>
+            <div class="card card-outline-secondary my-4">
+                <div class="card-header">
+                    Coments
                 </div>
-                <!-- /.card -->
-
-                <div class="card card-outline-secondary my-4">
-                    <div class="card-header">
-                        Coments
-                    </div>
-                    <div class="card-body">
-                        <p>The best player</p>
-                        <small class="text-muted">Posted by PKomorowski on 21/04/17</small>
-                        <hr>
-                        <p>I am proud that my friend won all matches. He is a really great man. I love to play with him.</p>
-                        <small class="text-muted">Posted by MPlesinski on 20/04/17</small>
-                        <hr>
-                        <p>I would like to be like him and win all matches. It must be amazing. This fame must be wonderful.</p>
-                        <small class="text-muted">Posted by Anonymous on 20/04/17</small>
-                        <hr>
-                        <p>Go Marcin</p>
-                        <small class="text-muted">Posted by MKonewka on 20/04/17</small>
-                        <hr>
-                        <p>Love the game.</p>
-                        <small class="text-muted">Posted by Anonymous on 20/04/17</small>
-                        <hr>
-                        <p>The best final.</p>
-                        <small class="text-muted">Posted by TKrawczyk on 19/04/17</small>
-                        <hr>
-                        <a href="#" class="btn btn-success">Leave a Review</a>
-                    </div>
+                <div class="card-body">
+                    <p>The best player</p>
+                    <small class="text-muted">Posted by PKomorowski on 21/04/17</small>
+                    <hr>
+                    <p>I am proud that my friend won all matches. He is a really great man. I love to play with him.</p>
+                    <small class="text-muted">Posted by MPlesinski on 20/04/17</small>
+                    <hr>
+                    <p>I would like to be like him and win all matches. It must be amazing. This fame must be
+                        wonderful.</p>
+                    <small class="text-muted">Posted by Anonymous on 20/04/17</small>
+                    <hr>
+                    <p>Go Marcin</p>
+                    <small class="text-muted">Posted by MKonewka on 20/04/17</small>
+                    <hr>
+                    <p>Love the game.</p>
+                    <small class="text-muted">Posted by Anonymous on 20/04/17</small>
+                    <hr>
+                    <p>The best final.</p>
+                    <small class="text-muted">Posted by TKrawczyk on 19/04/17</small>
+                    <hr>
+                    <a href="#" class="btn btn-success">Leave a Review</a>
                 </div>
-                <!-- /.card -->
-
             </div>
-            <!-- /.col-lg-9 -->
+            <!-- /.card -->
 
         </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+
+
+        <h1>Modal example</h1>
+        <button ng-click="toggleModal()" class="btn btn-default">Open modal</button>
+
 
     </div>
     <!-- /.container -->
@@ -121,7 +126,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+            <p class="m-0 text-center text-white">Copyright &copy; OpenFossball Team 2018</p>
         </div>
         <!-- /.container -->
     </footer>
@@ -130,11 +135,11 @@
         <form role="form">
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" />
+                <input type="email" class="form-control" id="email" placeholder="Enter email"/>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" />
+                <input type="password" class="form-control" id="password" placeholder="Password"/>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
@@ -146,7 +151,7 @@
     mymodal.controller('MainCtrl', function ($scope) {
         $scope.image = "https://theleftahead.com/wp-content/uploads/2015/01/stock-footage-a-perspective-pan-through-the-middle-of-a-wooden-foosball-table-showing-a-blue-and-red-team-on-a.jpg";
         $scope.showModal = false;
-        $scope.toggleModal = function(){
+        $scope.toggleModal = function () {
             $scope.showModal = !$scope.showModal;
         };
     });
@@ -166,26 +171,26 @@
             '</div>',
             restrict: 'E',
             transclude: true,
-            replace:true,
-            scope:true,
+            replace: true,
+            scope: true,
             link: function postLink(scope, element, attrs) {
                 scope.title = attrs.title;
 
-                scope.$watch(attrs.visible, function(value){
-                    if(value == true)
+                scope.$watch(attrs.visible, function (value) {
+                    if (value == true)
                         $(element).modal('show');
                     else
                         $(element).modal('hide');
                 });
 
-                $(element).on('shown.bs.modal', function(){
-                    scope.$apply(function(){
+                $(element).on('shown.bs.modal', function () {
+                    scope.$apply(function () {
                         scope.$parent[attrs.visible] = true;
                     });
                 });
 
-                $(element).on('hidden.bs.modal', function(){
-                    scope.$apply(function(){
+                $(element).on('hidden.bs.modal', function () {
+                    scope.$apply(function () {
                         scope.$parent[attrs.visible] = false;
                     });
                 });

@@ -14,8 +14,35 @@
     <script src="/webjars/bootstrap/4.1.0/js/bootstrap.js"></script>
     <title>OpenFossball</title>
 </head>
-<body ng-app="mymodal" style="padding-top: 40px">
 
+<style>
+    .content {
+        overflow: auto;
+        position: relative;
+    }
+
+    .content:before {
+        content: "";
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: -1;
+
+        display: block;
+        background-image: url('https://hdwallsource.com/img/2015/10/soccer-wallpaper-46101-47400-hd-wallpapers.jpg');
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+    }
+</style>
+<body ng-app="mymodal" style="padding-top: 40px">
+<div class="content">
 <div ng-controller="MainCtrl">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -39,7 +66,13 @@
                     <a class="nav-link" href="/rules">Rules</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/playerpage">Profil</a>
+                    <a class="nav-link" href="/new_match">New Match</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ranking">Ranking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/playerpage">Profil</a>
                 </li>
                 <li class="button">
                     <form th:action="@{/logout}" method="post">
@@ -57,7 +90,7 @@
 
             <div class="col-lg-3">
                 <div class="row">
-                    <h1 class="my-4">{{profileName}}</h1>
+                    <h1 class="my-4 text-white">{{profileName}}</h1>
                 </div>
 
                 <div class="row">
@@ -68,7 +101,7 @@
 
             <div class="col-lg-9">
 
-                <div class="card mt-4">
+                <div class="card bg-dark text-white mt-4">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-9">
@@ -92,6 +125,11 @@
                             </div>
                             <div class="col-md-3">
                                 {{profilePoints}}
+                                <!--TODO pokazane, że się da przypisać javasciptowemy obiektowi wartość z thymeleafa w taki sposób
+                                TODO że nawet woła się metodę backendową. To znaczy, że przesyłam obiekt z backendu
+                                TODO i na froncie wołam metody, żeby dane wziąć :D niżej pokazane, że można w html wołać
+                                TODO thymeleafowe zmienna bez problemu teraz trzeba wybrać jak to robić :)
+                                TODO czy thymeleafem czy javascriptem -->
                             </div>
                         </div>
                         <div class="row">
@@ -111,10 +149,23 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label for="profileDescription">Description:</label>
+                                <h2>
+                                    <span th:text="'Message: ' + ${message}"></span>
+                                </h2>
                             </div>
                             <div class="col-md-9">
-                                        <textarea class="form-control" rows="26" id="profileDescription"
-                                                  style="width: 100%">{{profileDescription}}</textarea>
+                                <div
+                                        id="player_param"
+                                        th:if="${(param.player != null)}">
+                                    <textarea disabled class="form-control" rows="26" id="profileDescription"
+                                              style="width: 100%">{{profileDescription}}</textarea>
+                                </div>
+                                <div
+                                        id="player_param_less"
+                                        th:if="${(param.player == null)}">
+                                    <textarea class="form-control" rows="26" id="profileDescription"
+                                style="width: 100%">{{profileDescription}}</textarea>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -124,8 +175,9 @@
         </div>
         <!-- /.col-lg-9 -->
     </div>
+    <br>
 
-</div>
+
 <!-- /.container -->
 
 <!-- Footer -->
@@ -136,6 +188,10 @@
     <!-- /.container -->
 </footer>
 </div>
+</div>
+<script th:inline="javascript">
+    var test_pofilePoints = [[${logged_player.getProfilePoints()}]];
+</script>
 <script>
     var mymodal = angular.module('mymodal', []);
 
@@ -148,7 +204,7 @@
         $scope.profileWins = 100;
         $scope.profileMatches = 300;
         $scope.profileWiningPercentage = $scope.profileWins / $scope.profileMatches * 100 + " %";
-        $scope.profilePoints = 170;
+        $scope.profilePoints = test_pofilePoints;
         $scope.profileDescription = "hate so and so, so much?\" And he had answered them, with his shaemless impudence, \"I'll tell you. He has done me no harm. But I played him a dirty trick, and ever since I have hated him.\"\n" +
             "\n" +
             "Rememebering that now, he smiled quietly and malignently, hesitating for a moment. His eyes gleamed, and his lips positively quivered.\n" +

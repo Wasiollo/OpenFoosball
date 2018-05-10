@@ -3,23 +3,23 @@ package com.silentpenguins.OpenFoosball.pojo;
 import java.sql.Blob;
 
 public class Player {
-    private String profileName;
+    private String userName;
     private Blob profileImage;
-    private String profileFirstName;
-    private String profileLastName;
-    private Integer profileWins;
-    private Integer profileMatches;
-    private Integer profilePoints;
-    private String profileDescription;
+    private String firstName;
+    private String lastName;
+    private Integer wins;
+    private Integer matches;
+    private Integer points;
+    private String description;
 
     public Player(){
-        setProfileName("Marcin Puc");
-        setProfileFirstName("Marcin");
-        setProfileLastName("Puc");
-        setProfileWins(100);
-        setProfileMatches(300);
-        setProfilePoints(170);
-        setProfileDescription("hate so and so, so much?\" And he had answered them, with his shaemless impudence, \"I'll tell you. He has done me no harm. But I played him a dirty trick, and ever since I have hated him.\"\n" +
+        setUserName("Marcin Puc");
+        setFirstName("Marcin");
+        setLastName("Puc");
+        setWins(100);
+        setMatches(300);
+        setPoints(170);
+        setDescription("hate so and so, so much?\" And he had answered them, with his shaemless impudence, \"I'll tell you. He has done me no harm. But I played him a dirty trick, and ever since I have hated him.\"\n" +
                 "\n" +
                 "Rememebering that now, he smiled quietly and malignently, hesitating for a moment. His eyes gleamed, and his lips positively quivered.\n" +
                 "\n" +
@@ -62,59 +62,59 @@ public class Player {
         this.profileImage = profileImage;
     }
 
-    public String getProfileName() {
-        return profileName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setProfileName(String profileName) {
-        this.profileName = profileName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getProfileFirstName() {
-        return profileFirstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setProfileFirstName(String profileFirstName) {
-        this.profileFirstName = profileFirstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getProfileLastName() {
-        return profileLastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setProfileLastName(String profileLastName) {
-        this.profileLastName = profileLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public Integer getProfileWins() {
-        return profileWins;
+    public Integer getWins() {
+        return wins;
     }
 
-    public void setProfileWins(Integer profileWins) {
-        this.profileWins = profileWins;
+    public void setWins(Integer wins) {
+        this.wins = wins;
     }
 
-    public Integer getProfileMatches() {
-        return profileMatches;
+    public Integer getMatches() {
+        return matches;
     }
 
-    public void setProfileMatches(Integer profileMatches) {
-        this.profileMatches = profileMatches;
+    public void setMatches(Integer matches) {
+        this.matches = matches;
     }
 
-    public Integer getProfilePoints() {
-        return profilePoints;
+    public Integer getPoints() {
+        return points;
     }
 
-    public void setProfilePoints(Integer profilePoints) {
-        this.profilePoints = profilePoints;
+    public void setPoints(Integer points) {
+        this.points = points;
     }
 
-    public String getProfileDescription() {
-        return profileDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setProfileDescription(String profileDescription) {
-        this.profileDescription = profileDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -88,10 +88,11 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 style="color: red"> TO JEEST TYLKO KOPIA STRONY RULES, BY SZYBCIEJ TWORZYĆ NASTĘPNE :)</h1>
 
                 <div class="card bg-dark text-white mt-4">
-                    <img class="card-img-top img-fluid" ng-src="{{ruleimage}}" alt="">
+                    <div class="card-header text-center">
+                        <h2>New Match</h2>
+                    </div>
                     <div class="card-body">
                         <h3 class="card-title">Rules</h3>
                         <h4>Basic rules</h4>
@@ -105,6 +106,14 @@
                             - <b>Dead Balls</b> - If a foosball stops in the middle of two opposing team rods, the ball must be picked up and reserved. The serve goes back to the team that was last scored on. If a dead ball occurs on the defensive side of the table behind the defensive 2 bar, the defensive player must move the ball back into playing position. This rule is in place so players don't cause a dead ball on purpose in order to force a reserve.<br>
                             - <b>Out of Play</b> - If a ball comes off the table area or hits a top rail and comes back into the table area, the ball is ruled out of play and must be reserved by the team that was last scored on.<br>
                             - <b>5 Bar Passing</b> - These 5 bar passing rules are a little complex if you have never played tournament foosball. These passing rules do not apply to the other foosball rods, just the 5 bar. You are required to pass the ball within a 10 second time period from your 5 bar rod to the 3 bar rod directly after a serve. After the initial serve, you then are allowed 15 seconds to pass from the 5 bar. A ball cannot be completely stopped on the 5 bar and passed forward to the 3 bar, it must be moving and touch 2 men on the 5 bar before being advanced. Additionally, the ball can only touch the wall a total of 2 times in a row (before touching a man again on the 5 bar) before being advanced. However, it can touch the ball a 3rd time if it is part of the pass.</p>
+                        <form>
+                            <label class="radio"><input type="radio" name="optradio"
+                                                               id="radioButton_tournamentMatch">Tournament Match</label>
+                            <label class="radio"><input type="radio" name="optradio"
+                                                               id="radioButton_regularMatch">Regular Match</label>
+                            <label class="radio"><input type="radio" name="optradio"
+                                                               id="radioButton_trainingMatch">Training Match</label>
+                        </form>
                     </div>
                 </div>
                 <!-- /.card -->

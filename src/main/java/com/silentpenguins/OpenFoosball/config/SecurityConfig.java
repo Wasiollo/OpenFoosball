@@ -1,4 +1,4 @@
-package config;
+package com.silentpenguins.OpenFoosball.config;
 
 
 import org.springframework.context.annotation.Bean;
@@ -45,4 +45,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         return new InMemoryUserDetailsManager(user);
     }
+
 }

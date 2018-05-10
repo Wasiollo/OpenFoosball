@@ -1,7 +1,7 @@
-package service;
+package com.silentpenguins.OpenFoosball.service;
 
-import dao.ScoringDao;
-import model.Scoring;
+import com.silentpenguins.OpenFoosball.dao.ScoringDao;
+import com.silentpenguins.OpenFoosball.model.Scoring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

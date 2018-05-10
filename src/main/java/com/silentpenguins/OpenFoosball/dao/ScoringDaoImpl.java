@@ -1,9 +1,11 @@
-package dao;
+package com.silentpenguins.OpenFoosball.dao;
 
-import model.Scoring;
+import com.silentpenguins.OpenFoosball.model.Scoring;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class ScoringDaoImpl implements ScoringDao {
 
     @Override

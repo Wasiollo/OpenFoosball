@@ -4,10 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ScoringController {
-
+public class ScoringPageController {
     @RequestMapping("/scoring")
     public String showScoring() {
         return "scoring";
     }
+
 }
+

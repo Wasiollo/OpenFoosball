@@ -4,14 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" th:src="@{/webjars/angularjs/1.6.9/angular.js}"></script>
-    <script type="text/javascript" th:src="@{/webjars/angularjs/1.6.9/angular-resource.js}"></script>
-    <script type="text/javascript" th:src="@{/webjars/angularjs/1.6.9/angular-route.js}"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}"/>
-    <script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.js}"></script>
-    <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="/webjars/angularjs/1.6.9/angular.js"></script>
+    <script src="/webjars/angularjs/1.6.9/angular-resource.js"></script>
+    <script src="/webjars/angularjs/1.6.9/angular-route.js"></script>
+    <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <script src="/webjars/bootstrap/4.1.0/js/bootstrap.js"></script>
+    <title>OpenFossball</title>
 </head>
-<body style="padding-top: 70px;">
+<style>
+    .content {
+        overflow: auto;
+        position: relative;
+    }
+
+    .content:before {
+        content: "";
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: -1;
+
+        display: block;
+        background-image: url('https://hdwallsource.com/img/2015/10/soccer-wallpaper-46101-47400-hd-wallpapers.jpg');
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+    }
+</style>
+<body style="padding-top: 40px;">
+<div class="content">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="/login">OpenFoosball Login Page</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -19,15 +49,17 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 </nav>
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.x
-</div>
 <form th:action="@{/login}" method="post">
-    <div class="container">
+    <div class="container" style="padding-top: 30px">
         <div class="row">
+            <div th:if="${param.logout}">
+                <h3 style="color: red">You have been logged out.</h3>
+            </div>
+            <div th:if="${param.error}">
+                <h3 style="color: red">Invalid username and password.</h3>
+            </div>
+        </div>
+        <div class="row text-white">
             <div class="col-md-4">
                 <label> User Name : </label>
             </div>
@@ -35,7 +67,7 @@
                 <input type="text" placeholder="Username" name="username"/>
             </div>
         </div>
-        <div class="row">
+        <div class="row text-white">
             <div class="col-md-4">
                 <label> Password : </label>
             </div>
@@ -52,6 +84,6 @@
         </div>
     </div>
 </form>
-
+</div>
 </body>
 </html>

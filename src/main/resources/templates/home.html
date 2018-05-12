@@ -44,43 +44,8 @@
 <div class="content">
 <div ng-controller="MainCtrl">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-
-        <a class="navbar-brand" href="/">OpenFoosball</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/scoring">Scoring</a>
-                </li><li class="nav-item">
-                <a class="nav-link" href="/rules">Rules</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/new_match">New Match</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ranking">Ranking</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/playerpage">Profil</a>
-                </li>
-                <li class="button">
-                    <form th:action="@{/logout}" method="post">
-                        <button class="btn btn-danger">Logout</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
-
-    </nav>
+    <div th:include="navbar"></div>
+    <!-- Navigation --->
 
     <div class="container">
     <!-- Page Content -->
@@ -115,7 +80,7 @@
 
             <div class="card bg-dark text-white card-outline-secondary my-4">
                 <div class="card-header">
-                    Coments
+                    Comments
                 </div>
                 <div class="card-body">
                     <p>The best player</p>
@@ -155,13 +120,6 @@
     </div>
     <!-- /.container -->
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; OpenFossball Team 2018</p>
-        </div>
-        <!-- /.container -->
-    </footer>
 
     <modal id="exampleModal" visible="showModal">
         <form role="form">
@@ -176,12 +134,15 @@
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
     </modal>
+    <!-- Footer -->
+    <div th:include="footer"></div>
+    <!-- Footer --->
 </div></div>
 <script>
     var mymodal = angular.module('mymodal', []);
 
     mymodal.controller('MainCtrl', function ($scope) {
-        $scope.image = "https://theleftahead.com/wp-content/uploads/2015/01/stock-footage-a-perspective-pan-through-the-middle-of-a-wooden-foosball-table-showing-a-blue-and-red-team-on-a.jpg";
+        $scope.image = "/img/fossball.jpg";
         $scope.showModal = false;
         $scope.toggleModal = function () {
             $scope.showModal = !$scope.showModal;

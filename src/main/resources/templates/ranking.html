@@ -44,44 +44,9 @@
 
 <div class="content"><div ng-controller="MainCtrl">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div th:include="navbar"></div>
+    <!-- Navigation --->
 
-        <a class="navbar-brand" href="/">OpenFoosball</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/scoring">Scoring
-                        <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/rules">Rules</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/new_match">New Match</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ranking">Ranking</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/playerpage">Profil</a>
-                </li>
-                <li class="button">
-                    <form th:action="@{/logout}" method="post">
-                        <button class="btn btn-danger">Logout</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
-
-    </nav>
     <div class="container" style="padding-top: 25px">
 
         <!-- Page Content -->
@@ -129,19 +94,15 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; OpenFossball Team 2018</p>
-        </div>
-        <!-- /.container -->
-    </footer>
+    <div th:include="footer"></div>
+    <!-- Footer --->
+
 </div>
 </div>
 <script>
     var mymodal = angular.module('mymodal', []);
 
     mymodal.controller('MainCtrl', function ($scope) {
-        $scope.ruleimage = "http://www.codeaffine.com/wp-content/uploads/2012/09/rule.png";
         $scope.playerRanking = [
             {"id": 1, "username": "Wasiollo", "firstName": "Mateusz", "lastName": "Wasiak", "points": 10000, "wins": 60, "matches": 100},
             {"id": 2, "username": "MPUC", "firstName": "Martin", "lastName": "Putz", "points": 450, "wins": 150, "matches": 4000},

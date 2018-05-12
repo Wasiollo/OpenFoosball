@@ -23,8 +23,8 @@
           <element id="library" level="project" name="Gradle: org.webjars:bootstrap:4.1.0" />
           <element id="library" level="project" name="Gradle: org.webjars:angularjs:1.6.9" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-json:2.0.1.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter:2.0.1.RELEASE" />
           <element id="library" level="project" name="Gradle: org.postgresql:postgresql:42.2.2" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter:2.0.1.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-config:5.0.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-web:5.0.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:5.0.5.RELEASE" />
@@ -40,7 +40,6 @@
           <element id="library" level="project" name="Gradle: org.webjars:jquery:3.0.0" />
           <element id="library" level="project" name="Gradle: org.webjars:popper.js:1.14.1" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-logging:2.0.1.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons:2.0.6.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-beans:5.0.5.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-expression:5.0.5.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-core:5.0.5.RELEASE" />
@@ -73,6 +72,7 @@
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aspects/5.0.5.RELEASE/34994566374425cfdf82634720b010ed20be512d/spring-aspects-5.0.5.RELEASE.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-orm/5.0.5.RELEASE/6734f5ef4c2ebf1d00021fd4b314138f10792174/spring-orm-5.0.5.RELEASE.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/5.0.5.RELEASE/456bc4d2281c37aa2f2206651a3048a1d3559d2a/spring-jdbc-5.0.5.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/2.0.6.RELEASE/4d65fdcbe258961e866f4f85c87c13193bbfd18c/spring-data-commons-2.0.6.RELEASE.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/5.0.5.RELEASE/b772fbba533da282adc89f33e2619ee8a8bba601/spring-tx-5.0.5.RELEASE.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate.common/hibernate-commons-annotations/5.0.1.Final/71e1cff3fcb20d3b3af4f3363c3ddb24d33c6879/hibernate-commons-annotations-5.0.1.Final.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zaxxer/HikariCP/2.7.8/4a3a604fa2efa89621aa498d04e000b2bed90c39/HikariCP-2.7.8.jar" />

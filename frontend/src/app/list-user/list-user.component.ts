@@ -22,13 +22,18 @@ export class ListUserComponent implements OnInit {
     }
     this.apiService.getUsers()
       .subscribe(data => {
-        this.users = data.result;
+        if (data.status === 200) {
+          this.users = data.result;
+        } else if (data.status === 401) {
+          window.localStorage.removeItem('token');
+          this.router.navigate(['login']);
+        }
       });
   }
 
   deleteUser(user: User): void {
     this.apiService.deleteUser(user.id)
-      .subscribe(data => {
+      .subscribe(() => {
         this.users = this.users.filter(u => u !== user);
       });
   }

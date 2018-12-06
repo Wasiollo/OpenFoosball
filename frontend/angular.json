@@ -24,11 +24,12 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
+              "src/fossball.ico",
               "src/assets"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -89,6 +90,7 @@
             "scripts": [],
             "assets": [
               "src/favicon.ico",
+              "src/fossball.ico",
               "src/assets"
             ]
           }

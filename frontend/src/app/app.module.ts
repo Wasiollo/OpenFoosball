@@ -11,6 +11,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {routing} from './app.routing';
 import {TokenInterceptor} from './core/interceptor';
+import { HeaderComponent } from './header/header.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,18 @@ import {TokenInterceptor} from './core/interceptor';
     LoginComponent,
     RegisterComponent,
     EditUserComponent,
-    ListUserComponent
+    ListUserComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     routing,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
+  ],
+  exports: [
+    HeaderComponent
   ],
   providers: [ApiService, {
     provide: HTTP_INTERCEPTORS,
